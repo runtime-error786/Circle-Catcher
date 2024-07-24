@@ -14,3 +14,10 @@ def generate_circle(frame_height, frame_width):
     radius = 30
     return (x, y, radius)
 
+def is_hand_near_circle(hand_landmarks, circle_center, radius, threshold=50):
+    for lm in hand_landmarks.landmark:
+        x, y = int(lm.x * frame_width), int(lm.y * frame_height)
+        distance = np.sqrt((x - circle_center[0])**2 + (y - circle_center[1])**2)
+        if distance < (radius + threshold):
+            return True
+    return False
