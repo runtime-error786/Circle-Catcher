@@ -87,3 +87,5 @@ def play_game():
             cv2.destroyAllWindows()
             break
 
+if __name__ == '__main__':
+    play_game()
